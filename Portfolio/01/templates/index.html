@@ -166,23 +166,20 @@
 
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
-        <form action="#">
+        <form action="your-post-endpoint" method="post">
             <div class="input-box">
-                <!-- <label for="brand">Brand:</label> -->
-                <!-- <select name="brand_name" id="fifth" required="required"> -->
-                <input type="text" placeholder="Full Name" >
-                <input type="email  " placeholder="Email Address">
+                <input type="text" name="full_name" placeholder="Full Name" >
+                <input type="email" name="email_address" placeholder="Email Address">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+                <input type="number" name="mobile_number" placeholder="Mobile Number">
+                <input type="text" name="email_subject" placeholder="Email Subject">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <textarea name="message" cols="30" rows="10" placeholder="Your Message"></textarea>
             <input type="submit" value="Send Message" class="btn">
-        </form> 
-    </form>
+        </form>
     </section>
-
+    
     <!-- footer design -->
 
     <footer class="footer">
