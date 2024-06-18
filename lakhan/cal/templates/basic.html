@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
-    <link rel="stylesheet" href="static\styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="calculator">
-        <input type="text" class="calculator-screen" value="" disabled />
+        <input type="text" class="calculator-screen" id="calculator-screen" value="" disabled />
         <div class="calculator-keys">
             <button type="button" class="operator" value="+">+</button>
             <button type="button" class="operator" value="-">-</button>
             <button type="button" class="operator" value="*">&times;</button>
             <button type="button" class="operator" value="/">&divide;</button>
-            
 
             <button type="button" value="7">7</button>
             <button type="button" value="8">8</button>
@@ -35,5 +34,51 @@
             <button type="button" class="equal-sign operator" value="=">=</button>
         </div>
     </div>
+
+    <script>
+        const calculatorScreen = document.querySelector('.calculator-screen');
+        const keys = document.querySelector('.calculator-keys');
+        let expression = '';
+
+        keys.addEventListener('click', event => {
+            const { target } = event;
+            const { value } = target;
+            if (!target.matches('button')) {
+                return;
+            }
+
+            switch (value) {
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                case '.':
+                    expression += value;
+                    break;
+                case '=':
+                    fetch('/calculate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ expression }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        calculatorScreen.value = data.result;
+                        expression = data.result;
+                    });
+                    break;
+                case 'all-clear':
+                    expression = '';
+                    calculatorScreen.value = '';
+                    break;
+                default:
+                    expression += value;
+                    calculatorScreen.value = expression;
+                    break;
+            }
+        });
+    </script>
 </body>
 </html>
