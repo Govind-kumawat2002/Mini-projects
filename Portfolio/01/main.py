@@ -25,7 +25,7 @@ def send_email(name, email_address, mobile_number, subject, message):
         server.quit()
         print(f"Successfully sent email to {SENDER_EMAIL} 😉🤞😉")
     except Exception as e:
-        print(f"Mail was not sent 😒😒! Error: {str(e)}")
+        print(f"Mail was not sent please try again ! Error: {str(e)}")
 
 @app.route('/')  # (/) --> home route
 def home():
