@@ -12,6 +12,8 @@ def shope_names(bookdictonary,key ,value):
 for shope_name in bookdictonary:
     if shope_name in bookdictonary:
         print("that is already present in contact book")
+    else:
+        pass
 
 
 
