@@ -10,11 +10,15 @@ def shope_names(bookdictonary,key ,value):
     bookdictonary[key] = value
 
 for shope_name in bookdictonary:
+    bookdictonary[key] = value
+
     if shope_name in bookdictonary:
         print("that is already present in contact book")
     else:
-        pass
+        bookdictonary.append(shope_name)
 
+print(bookdictonary)
+shope_name(bookdictonary)
 
 
 
