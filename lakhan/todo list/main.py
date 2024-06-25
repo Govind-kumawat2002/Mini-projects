@@ -11,6 +11,7 @@ if task in count_Task:
       print("that is already present in your list ") 
       print("hello babu")
       print("hello baby")
+      print("hey shree ")
 else:
       pass
 count_apend(task)
