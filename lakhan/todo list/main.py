@@ -13,6 +13,7 @@ if task in count_Task:
       print("hello baby")
       print("jai sir ")
       print("hey shree ")
+      print("hrllk sir ji kese ho ji ")
 else:
       pass
 count_apend(task)
