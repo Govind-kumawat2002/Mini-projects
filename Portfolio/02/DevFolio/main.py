@@ -3,6 +3,12 @@ app = Flask(__name__)
 @app.route('/')                    # (/) --> home route 
 def home():
     return render_template('index.html')
+def home2():
+    return render_template('portfolio.html')
+def home3():
+    return render_template('service.html')
+def home4():
+    return render_template('starter.html')
 
 # @app.route('/predict',methods=['GET','POST'])
 
